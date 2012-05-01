@@ -191,13 +191,17 @@ var loadSite = function(src){
   xhr.open('GET', '/supported?url=' + src);
   xhr.addEventListener('readystatechange', function(e){
     var response;
-    if (xhr.readyState == 4) {
-      response = JSON.parse(xhr.responseText);
-      if (response['x-frame-options'] !== false) {
-        loadIndicator.classList.add('error');
-        p.textContent = "Load Error: forbidden by X-Frame-Options HTTP response header."
+    if (xhr.status == 500) {
+      p.textContent = "Host unreachable from server."
+    } else {
+      if (xhr.readyState == 4) {
+        response = JSON.parse(xhr.responseText);
+        if (response['x-frame-options'] !== false) {
+          loadIndicator.classList.add('error');
+          p.textContent = "Load Error: forbidden by X-Frame-Options HTTP response header."
+        };
       };
-    };
+    }
   });
   xhr.send("")
 };
