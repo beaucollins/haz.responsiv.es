@@ -34,7 +34,7 @@
     </div>
   </section>
   <footer>
-    <p>Made by <a href="http://twitter.com/beaucollins">@beaucollins</a>. </p>
+    <p>Made by <a href="http://twitter.com/beaucollins">@beaucollins</a>. Source on <a href="http://github.com/beaucollins/haz.responsiv.es">Github</a>. </p>
   </footer>
   <script type="text/javascript" charset="utf-8">
   !function(p){
@@ -45,6 +45,9 @@
     a.textContent = "Bookmarklet: haz.responsiv.es?";
     a.href = "javascript:window.location='" + l + "/?'+encodeURIComponent(window.location)";
     p.appendChild(a);
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+    });
   }(document.querySelector('footer p'));
   </script>
   <script type="text/javascript" charset="utf-8" src="app.js"></script>
