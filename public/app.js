@@ -4,17 +4,18 @@ var iframe = document.querySelector('iframe'),
     section = document.querySelector('section'),
     loadIndicator = document.querySelector('#load-indicator'),
     canvas = document.createElement('canvas'),
-    guides = [];
+    guides = [],
+    buttons;
   
 section.appendChild(canvas);
-      
   
-Array.prototype.forEach.call(document.querySelectorAll('li'), function(li){
+buttons = Array.prototype.map.call(document.querySelectorAll('li'), function(li){
   li.addEventListener('click', function(e){
     e.preventDefault();
     setIframeWidth(li.textContent);
   });
   guides.push(parseInt(li.textContent));
+  return li;
 });
   
 guides = guides.sort(function(a, b){
@@ -41,6 +42,15 @@ var setIframeWidth = function(w){
     
   holder.style.width = w + 'px';
   span.textContent = w + 'px';
+  
+  buttons.forEach(function(button){
+    if (parseInt(button.textContent) == w) {
+      button.classList.add('selected');
+    } else {
+      button.classList.remove('selected');
+    }
+  });
+  
   return w;
 }
   

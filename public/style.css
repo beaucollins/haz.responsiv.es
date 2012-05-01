@@ -78,8 +78,8 @@ ul {
   top: 0;
   text-align: center;
   list-style: none;
-  padding: 0 10px;
-  margin: 10px 0;
+  padding: 12px;
+  margin: 0;
   cursor: default;
   display:inline-block;
 }
@@ -112,7 +112,12 @@ li:active {
   
 li.selected {
   color: #FFF;
-  background: #666;
+  background: #888;
+  background: linear-gradient(#777, #888 90%, #777);
+  background: -webkit-linear-gradient(#777, #888 90%, #777);
+  background: -moz-linear-gradient(#777, #888);
+  border: 1px solid #666;
+  text-shadow: 0 -1px 0 #000;
 }
     
 section {
@@ -181,12 +186,19 @@ span:active, span:focus {
   border: none;
   padding: 3px 11px;
   cursor: text;
-  background: #AAA;
-  background: -webkit-linear-gradient(#aaa, #BBB, #AAA);
+  background: #777;
+  background: -webkit-linear-gradient(#777, #999 30%, #999 70%, #777);
+  background: -moz-linear-gradient(#777, #999 30%, #999 70%, #777);
+  background: linear-gradient(#777, #999 30%, #999 70%, #777);
   box-shadow: inset 0 0 1px hsla(0, 0%, 0%, 0.3), 0 1px 0 #FFF ;
   outline: none;
   color: #FFF;
   text-shadow: 0 1px 0 hsla(0, 0%, 0%, 0.5);
+}
+
+span::selection, span::-moz-selection {
+  background: hsla(0, 100%, 100%%, 0.2);
+  border-radius: 2px;
 }
   
 canvas {
@@ -249,7 +261,7 @@ input[type="submit"] {
   text-shadow: 0 1px 0 hsla(0,0%,100%,0.5);
 }
   
-input[type="submit"]:active {
+input[type="submit"]:active, input[type="submit"]:focus {
   background: linear-gradient(#AAA, #BBB);
   background: -webkit-linear-gradient(#AAA, #BBB);
   background: -moz-linear-gradient(#AAA, #BBB);
