@@ -216,7 +216,18 @@ var loadSite = function(src){
   
 document.querySelector('form').addEventListener('submit', function(e){
   e.preventDefault();
+  if (window.history.pushState) {
+    window.history.pushState({url:this.site.value}, null, "?" + this.site.value);
+  };
   loadSite(this.site.value);
+});
+
+window.addEventListener('popstate', function(e){
+  if (e.state && e.state.url) {
+    console.log("State", e.state);
+    document.forms[0].site.value = e.state.url;
+    loadSite(e.state.url)
+  };
 });
   
 window.addEventListener('resize', function(){
