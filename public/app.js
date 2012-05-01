@@ -88,6 +88,7 @@ var drawGuides = function(canvas){
     context.fillStyle = "hsla(0,0%,0%,0.4)";
     var label = guide + 'px';
     context.fillText(label, x + guide + 10, 12);
+    context.fillText(label, x - context.measureText(label).width - 10, 12 );
       
   });
     
