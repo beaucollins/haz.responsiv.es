@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<title>Responsive?</title>
+  <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
+</head>
+<body id="iframe-test" onload="setTimeout(function(){ document.body.classList.remove('loading') }, 250);">
+	<script type="text/javascript" charset="utf-8">
+	document.body.classList.add('loading');
+	</script>
+	<header>
+	<ul>
+		<li>320</li>
+		<li>480</li>
+		<li>728</li>
+		<li>1024</li>
+	</ul>
+	<form>
+	<input type="text" name="site" value="" size="50">
+	<input type="submit" value="&rarr;">
+	</form>
+	<span contentEditable="true"></span>
+	</header>
+	<section>
+		<div id="iframe-holder">
+      <iframe src="about:blank">Sorry</iframe>
+      <div id="load-indicator">
+        <div class="throbber"><div></div></div>
+        <p>Loading</p>
+      </div>
+    </div>
+	</section>
+	<script type="text/javascript" charset="utf-8" src="app.js"></script>
+	</body>
+</html>

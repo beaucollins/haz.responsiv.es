@@ -1,0 +1,20 @@
+{
+  "author": "",
+  "name": "responsiv.es",
+  "version": "0.0.0",
+  "repository": {
+    "url": ""
+  },
+  "scripts":{
+    "start": "coffee server"
+  },
+  "engines": {
+    "node": "~0.6.11"
+  },
+  "dependencies": {
+    "express":"git://github.com/visionmedia/express.git",
+    "coffee-script":"*"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
