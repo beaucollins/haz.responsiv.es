@@ -269,6 +269,7 @@ input[type="submit"]:active {
   text-align: left;
   display:none;
   -webkit-animation: slide 200ms;
+  cursor: default;
 }
 
 #load-indicator.error > .throbber {
