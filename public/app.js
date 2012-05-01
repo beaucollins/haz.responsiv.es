@@ -99,7 +99,7 @@ var drawGuides = function(canvas){
 var Slider = function(frame, options){
   if (!options) options = {};
   options.snaps = options.snaps || [320, 480, 728, 1024];
-  options.snap_buffer = options.snap_buffer || 20;
+  options.snap_buffer = options.snap_buffer || 10;
   this.snap = true;
 
   var x = null, start_x = null, resizing = false, start_width, invert = false, overlay;
