@@ -5,7 +5,11 @@ url = require 'url'
 
 app = express()
 
-app.use express.static('public')
+app.use (req, res, next)->
+  res.setHeader('X-Powered-By', 'Awesomesauce');
+  next()
+
+app.use express.static('public')  
 
 app.get '/supported', (req, res, next)->
   find req.param('url'), req.headers['user-agent'], (e, http_response)->
