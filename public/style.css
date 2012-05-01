@@ -148,7 +148,7 @@ header {
   text-align: center;
   padding: 5px 0;
   height: 60px;
-  border-bottom: 5px solid #F00;
+  border-bottom: 5px solid hsl(0, 100%, 35%);
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
