@@ -29,8 +29,8 @@ app.get '/supported', (req, res, next)->
       res.send(200, {"x-frame-options":(http_response.headers['x-frame-options'] || false)})
       
 app.get '/opensearch', (req, res, next)->
-  # res.setHeader 'content-type', 'application/opensearchdescription+xml'
-  res.render 'opensearch'
+  res.setHeader 'content-type', 'application/opensearchdescription+xml' if req.is('application/opensearchdescription+xml')
+  res.render 'opensearch', url_template:'http://' + req.headers.host + '/?{searchTerms}'
     
 
 find = (u, ua, cb, hops = 5)=>
