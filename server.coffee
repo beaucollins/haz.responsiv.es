@@ -20,7 +20,6 @@ find = (u, ua, cb, hops = 5)=>
   if hops == 0
     cb(new Error("Too man redirects"))
     return
-  console.log("Looking up ", u);
   u = url.parse(u)
   u.headers = {
     'user-agent': ua
@@ -29,7 +28,6 @@ find = (u, ua, cb, hops = 5)=>
   client
     .get( u, (get)->
       if get.statusCode >= 300 && get.statusCode < 400
-        console.log("Going to", get.headers['location'])
         find get.headers['location'], ua, (e, get)->
           cb(e, get)
         , hops-1
