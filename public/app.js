@@ -101,9 +101,7 @@ var drawGuides = function(canvas){
     context.fillText(label, x - context.measureText(label).width - 10, 12 );
       
   });
-    
-    
-    
+        
 };
   
 var Slider = function(frame, options){
@@ -224,12 +222,7 @@ document.querySelector('form').addEventListener('submit', function(e){
 window.addEventListener('resize', function(){
   span.textContent = iframe.offsetWidth + 'px';
 });
-  
-if (window.location.search.indexOf("?") == 0) {
-  document.forms[0].site.value = window.location.search.slice(1);
-  loadSite(window.location.search.slice(1));
-};
-  
+    
 span.addEventListener('keydown', function(e){
   if (e.which == 13) {
     e.preventDefault();
@@ -258,4 +251,9 @@ window.addEventListener('resize', function(){
   
 if (localStorage.default_width) {
   setIframeWidth(localStorage.default_width);
+};
+
+if (window.location.search.indexOf("?") == 0) {
+  document.forms[0].site.value = decodeURIComponent(window.location.search.slice(1));
+  loadSite(document.forms[0].site.value);
 };

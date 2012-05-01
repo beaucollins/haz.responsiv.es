@@ -31,6 +31,20 @@
       </div>
     </div>
   </section>
+  <footer>
+    <p>Made by <a href="http://twitter.com/beaucollins">@beaucollins</a>. </p>
+  </footer>
+  <script type="text/javascript" charset="utf-8">
+  !function(p){
+    var a = document.createElement('a'),
+        l = window.location.protocol + "//" + window.location.hostname;
+        
+    if (window.location.port !== "") l += ":" + window.location.port;
+    a.textContent = "Bookmarklet: haz.responsiv.es?";
+    a.href = "javascript:window.location='" + l + "/?'+encodeURIComponent(window.location)";
+    p.appendChild(a);
+  }(document.querySelector('footer p'));
+  </script>
   <script type="text/javascript" charset="utf-8" src="app.js"></script>
   </body>
 </html>
