@@ -193,8 +193,8 @@ footer a:hover {
 footer a[href^="javascript:"] {
   background: #CCC;
   background: -webkit-linear-gradient(#C00, #900);
-  background: -moz-linear-gradient(#EEE, #999);
-  background: linear-gradient(#EEE, #999);
+  background: -moz-linear-gradient(#C00, #900);
+  background: linear-gradient(#C00, #900);
   padding: 2px 6px;
   border-radius: 2px;
   text-shadow: 0 1px 0 hsla(0,0%,100%,0.3);
