@@ -161,6 +161,7 @@ header {
 }
 
 footer {
+  font-weight: 200;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -169,8 +170,8 @@ footer {
   background: #333;
   z-index: 1;
   line-height: 32px;
-  color: #DDD;
-  text-shadow: 0 -1px 0 #000;
+  color: hsla(0,0%,100%,0.6);
+  text-shadow: 0 -1px 0 hsla(0,0%,0%,0.4);
   text-align: center;
   font-size: 14px;
 }
@@ -191,18 +192,21 @@ footer a:hover {
 
 footer a[href^="javascript:"] {
   background: #CCC;
-  background: linear-gradient(#EEE, #999);
-  background: -webkit-linear-gradient(#EEE, #999);
+  background: -webkit-linear-gradient(#C00, #900);
   background: -moz-linear-gradient(#EEE, #999);
+  background: linear-gradient(#EEE, #999);
   padding: 2px 6px;
   border-radius: 2px;
-  text-shadow: 0 1px 0 #FFF;
+  text-shadow: 0 1px 0 hsla(0,0%,100%,0.3);
   cursor: move;
   margin: 0 10px;
+  font-weight: 200;
+  color: hsla(0,0%,0%,0.8);
+  box-shadow: 0 0 2px hsla(0,0%,0%,0.75);
 }
 
 footer a[href^="javascript:"]:hover {
-  color: hsl(0, 100%, 30%);
+  color: hsla(0,0%,0%,0.8);
 }
 
 
