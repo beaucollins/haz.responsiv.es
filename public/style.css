@@ -3,8 +3,9 @@ body {
   background: #CCC;
   background: -webkit-repeating-linear-gradient(45deg, #CFCFCF, #CFCFCF 20px, #CCC 20px, #CCC 40px);
   background: -moz-repeating-linear-gradient(45deg, #CFCFCF, #CFCFCF 20px, #CCC 20px, #CCC 40px);
-  font-family: "HelveticaNeue-Light", HelveticaNeue, Helvetica-Neue, "Helvetica Neue", Helvetica, arial, sans-serif;
+  font: 16px "Helvetica-Neue-Light", "Helvetica Neue", "Helvetica-Neue", HelveticaNeue, Helvetica, arial, sans-serif;
   font-weight: 100;
+  letter-spacing: 0.05em;
 }
   
 #iframe-holder {
@@ -109,7 +110,6 @@ li:active {
   text-shadow: 0 1px 0 hsla(0, 0%, 0%, 0.5);
 }
   
-  
 li.selected {
   color: #FFF;
   background: #888;
@@ -117,7 +117,7 @@ li.selected {
   background: -webkit-linear-gradient(#777, #888 90%, #777);
   background: -moz-linear-gradient(#777, #888);
   border: 1px solid #666;
-  text-shadow: 0 -1px 0 #000;
+  text-shadow: 0 -1px 0 hsla(0,0%,0%,0.3);
 }
     
 section {
@@ -241,7 +241,7 @@ span:active, span:focus {
   box-shadow: inset 0 0 1px hsla(0, 0%, 0%, 0.3), 0 1px 0 #FFF ;
   outline: none;
   color: #FFF;
-  text-shadow: 0 1px 0 hsla(0, 0%, 0%, 0.5);
+  text-shadow: 0 -1px 0 hsla(0, 0%, 0%, 0.5);
 }
 
 span::selection, span::-moz-selection {
