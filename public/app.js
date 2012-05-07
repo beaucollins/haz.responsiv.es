@@ -1,11 +1,11 @@
-var iframe = document.querySelector('iframe'),
-    holder = document.querySelector('#iframe-holder'),
-    span = document.querySelector('span'),
-    section = document.querySelector('section'),
-    loadIndicator = document.querySelector('#load-indicator'),
-    canvas = document.createElement('canvas'),
-    guides = [],
-    buttons;
+var iframe = document.querySelector('iframe')
+  , holder = document.querySelector('#iframe-holder')
+  , span = document.querySelector('span')
+  , section = document.querySelector('section')
+  , loadIndicator = document.querySelector('#load-indicator')
+  , canvas = document.createElement('canvas')
+  , guides = []
+  , buttons;
   
 section.appendChild(canvas);
   
@@ -64,29 +64,20 @@ var shortcut = function(e){
 var drawGuides = function(canvas){
   canvas.setAttribute('width', section.offsetWidth);
   canvas.setAttribute('height', section.offsetHeight);
-  var context = canvas.getContext('2d'),
-      w = canvas.width,
-      h = canvas.height,
-      center = w * 0.5,
-      adjust = w % 2 == 0 ? -0.5 : 0.5,
-      gutter = 80;
+  var context = canvas.getContext('2d')
+    , w = canvas.width
+    , h = canvas.height
+    , center = w * 0.5
+    , adjust = w % 2 == 0 ? -0.5 : 0.5
+    , gutter = 80;
     
   context.clearRect(0, 0, w, h);
     
   context.strokeStyle = "hsla(0,0%,0%,0.1)";
   context.lineWidth = 0.5;
   guides.forEach(function(guide){
-    var x = (w - guide) * 0.5,
-        gradient=context.createLinearGradient(x,0,guide+x,0);
-          
-    gradient.addColorStop(0.0, 'hsla(0,0%,100%,0.5)');
-    gradient.addColorStop(gutter/guide, 'hsla(0,0%,100%,0.0)');
-    gradient.addColorStop(1.0 - (gutter/guide), 'hsla(0,0%,100%,0.0)');
-    gradient.addColorStop(1.0, 'hsla(0,0%,100%,0.5)');
-    context.fillStyle = gradient;
-      
-    // context.fillRect(x, 0, Math.round(guide), h);
-      
+    var x = (w - guide) * 0.5;
+    
     [Math.round(x) - adjust, Math.round(x + guide) - adjust].forEach(function(x){
       context.beginPath();
       context.moveTo(x,0);
@@ -106,17 +97,23 @@ var drawGuides = function(canvas){
   
 var Slider = function(frame, options){
   if (!options) options = {};
-  options.snaps = options.snaps || [320, 480, 728, 1024];
+  options.snaps       = options.snaps || [320, 480, 728, 1024];
   options.snap_buffer = options.snap_buffer || 10;
-  this.snap = true;
+  options.snap        = options.snap === true;
 
-  var x = null, start_x = null, resizing = false, start_width, invert = false, overlay;
+  var x = null
+    , start_x = null
+    , resizing = false
+    , start_width
+    , invert = false
+    , overlay;
+    
   overlay = document.createElement('div');
   overlay.style.position = "fixed";
-  overlay.style.top = "0";
-  overlay.style.right = "0";
-  overlay.style.bottom = "0";
-  overlay.style.left = "0";
+  overlay.style.top      = "0";
+  overlay.style.right    = "0";
+  overlay.style.bottom   = "0";
+  overlay.style.left     = "0";
     
   var leftBound = function(){
     return frame.offsetLeft;
@@ -139,7 +136,7 @@ var Slider = function(frame, options){
   }
         
   var closestSnap = function(w){
-    if (this.snap === false) return w;
+    if (!options.snap) return w;
     var snaps = options.snaps.filter(function(snap){
       return w > snap - options.snap_buffer && w < snap + options.snap_buffer;
     });
