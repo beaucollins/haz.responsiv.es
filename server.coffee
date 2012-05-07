@@ -24,38 +24,34 @@ app.configure ()->
 app.get '/supported', (req, res, next)->
   find req.param('url'), req.headers['user-agent'], (e, http_response)->
     if e
-      res.send(500, e.message)
+      res.send 500, e.message
     else
-      res.send(200, {"x-frame-options":(http_response.headers['x-frame-options'] || false)})
+      res.send 200, "x-frame-options":(http_response.headers['x-frame-options'] || false)
       
 app.get '/opensearch', (req, res, next)->
   res.setHeader 'content-type', 'application/opensearchdescription+xml'
   res.render 'opensearch', url_template:'http://' + req.headers.host + '/?{searchTerms}'
     
-
 find = (u, ua, cb, hops = 5)=>
   if hops == 0
     cb(new Error("Too man redirects"))
     return
-  u = url.parse(u)
-  u.headers = {
-    'user-agent': ua
-  }
-  client = if u.protocol == 'http:' then http else https
+  u = url.parse u
+  u.headers = 'user-agent':ua
+  client = if u.protocol == 'https:' then https else http
   client
-    .get( u, (get)->
+    .get u, (get)->
       if get.statusCode >= 300 && get.statusCode < 400
         find get.headers['location'], ua, (e, get)->
           cb(e, get)
         , hops-1
       else
         cb(null, get)
-    )
-    .on( 'error', (e)->
+    .on 'error', (e)->
       cb(e, null)
-    )
   
-  
-  
-app.listen process.env.PORT || 4000
+port = process.env.PORT || 4000
+console.log("Starting on server on port", port);
+
+app.listen port
   
