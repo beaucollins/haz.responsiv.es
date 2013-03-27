@@ -177,10 +177,12 @@ var Slider = function(frame, options){
       document.addEventListener('mousemove', detector);
     };
   };
-    
-  document.addEventListener('mousemove', detector);
-  document.addEventListener('mousedown', down);
-  document.body.addEventListener('mouseup', release);
+  
+  if (document.ontouchstart === undefined) {
+    document.addEventListener('mousemove', detector);
+    document.addEventListener('mousedown', down);
+    document.addEventListener('mouseup', release);
+  };
     
 }
   
