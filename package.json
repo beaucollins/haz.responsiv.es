@@ -9,7 +9,7 @@
     "start": "coffee server"
   },
   "engines": {
-    "node": "~0.6.11"
+    "node": "~0.10"
   },
   "dependencies": {
     "express":"git://github.com/visionmedia/express.git",
