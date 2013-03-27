@@ -179,7 +179,7 @@ var Slider = function(frame, options){
   };
     
   document.addEventListener('mousemove', detector);
-  section.addEventListener('mousedown', down);
+  document.addEventListener('mousedown', down);
   document.body.addEventListener('mouseup', release);
     
 }
